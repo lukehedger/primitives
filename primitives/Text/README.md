@@ -1,0 +1,5 @@
+Example:
+
+```
+<Text>Text</Text>
+```
