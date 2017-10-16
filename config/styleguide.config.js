@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   defaultExample: true,
-  ignore: ['**/index.js'],
+  ignore: ['**/index.js', '**/theme.js'],
   serverHost: 'localhost',
   serverPort: 2020,
   title: 'Primitives',
@@ -14,6 +14,6 @@ module.exports = {
     },
   ],
   getComponentPathLine(componentPath) {
-    return `import ${path.basename(componentPath, '.js')} from 'primitives'`
+    return `import { ${path.basename(componentPath, '.js')} } from 'primitives'`
   },
 }
