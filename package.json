@@ -1,35 +1,83 @@
 {
   "name": "primitives",
   "version": "1.0.0",
-  "main": "index.js",
   "description": "Primitives",
+  "main": "dist/primitives.js",
+  "module": "dist/primitives.mjs",
+  "jsnext:main": "dist/primitives.mjs",
+  "engines": {
+    "node": "8.4.0",
+    "npm": "5.3.0"
+  },
+  "directories": {
+    "doc": "doc",
+    "example": "example",
+    "lib": "lib",
+    "test": "test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lukehedger/primitives.git"
   },
-  "author": "lukehedger",
-  "license": "Apache-2.0",
+  "keywords": [
+    "primitives"
+  ],
+  "author": "Luke Hedger",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lukehedger/primitives/issues"
   },
   "homepage": "https://github.com/lukehedger/primitives#readme",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix \"lib/**/*.js\"",
+      "prettier --write --no-semi --single-quote --trailing-comma=es5",
+      "git add"
+    ]
+  },
+  "pre-commit": {
+    "run": [
+      "lint:staged"
+    ],
+    "silent": true
+  },
   "scripts": {
-    "start": "styleguidist server --config ./config/styleguide.config.js",
-    "build": "styleguidist build --config ./config/styleguide.config.js"
+    "build": "BABEL_ENV=build rollup -c",
+    "build:test": "npm run build -- --environment TEST",
+    "lint:staged": "lint-staged",
+    "styleguide:start": "BABEL_ENV=styleguide styleguidist server --config ./config/styleguide.config.js",
+    "styleguide:build": "BABEL_ENV=styleguide styleguidist build --config ./config/styleguide.config.js"
+  },
+  "peerDependencies": {
+    "polished": ">= 1.0.0 < 2.0.0",
+    "prop-types": ">= 15.0.0 < 16.0.0",
+    "react": ">= 0.14.0 < 17.0.0-0",
+    "styled-components": ">= 2.0.0 < 3.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
+    "eslint": "^4.9.0",
+    "eslint-config-jaak": "^1.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-react": "^7.4.0",
+    "lint-staged": "^4.2.3",
+    "polished": "^1.8.1",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.7.4",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-styleguidist": "^6.0.31",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-butternut": "^0.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "styled-components": "^2.2.1",
     "webpack": "^3.0.0"
-  },
-  "dependencies": {
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-styleguidist": "^5.5.0",
-    "styled-components": "^2.1.0"
   }
 }

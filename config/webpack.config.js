@@ -9,13 +9,6 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
-            options: {
-              presets: [
-                'env',
-                'react',
-                'stage-3',
-              ],
-            },
           },
         ],
       },

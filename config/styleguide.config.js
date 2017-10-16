@@ -10,10 +10,10 @@ module.exports = {
   sections: [
     {
       name: 'Primitives',
-      components: `../primitives/**/*.js`,
+      components: `../lib/**/*.js`,
     },
   ],
   getComponentPathLine(componentPath) {
     return `import ${path.basename(componentPath, '.js')} from 'primitives'`
-  }
+  },
 }

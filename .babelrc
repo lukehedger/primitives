@@ -1,0 +1,29 @@
+{
+  "env": {
+    "build": {
+      "plugins": [
+        "external-helpers"
+      ],
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false,
+            "targets": {
+              "node": "current"
+            }
+          }
+        ],
+        "react",
+        "stage-3"
+      ]
+    },
+    "styleguide": {
+      "presets": [
+        "env",
+        "react",
+        "stage-3"
+      ]
+    }
+  }
+}
