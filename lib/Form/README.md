@@ -1,0 +1,7 @@
+Example:
+
+```
+<Form>
+  <Input />
+</Form>
+```
